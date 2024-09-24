@@ -64,10 +64,10 @@ console.log(`Letzter Knoten nach zweitem Pop: ${list3.tail().value} (Erwartet: "
 
 // Entferne den letzten Knoten und teste erneut
 list3.pop();
-console.log(`Liste nach drittem Pop, Head: ${list3.head} (Erwartet: null)`); // Sollte null sein
+console.log(`Liste nach drittem Pop, Head: ${list3.head} (Erwartet: null)`);
 
 // Teste Pop auf einer leeren Liste
-console.log(`Pop auf leerer Liste: ${list3.pop()} (Erwartet: null)`); // Sollte null zurückgeben
+console.log(`Pop auf leerer Liste: ${list3.pop()} (Erwartet: null)`);
 
 // Test für contains()
 console.log('\nContains Tests:');
@@ -87,3 +87,44 @@ console.log(`Liste enthält "date": ${list4.contains('date')} (Erwartet: false)`
 // Teste auf einer leeren Liste
 const emptyList = new LinkedList();
 console.log(`Leere Liste enthält "anyValue": ${emptyList.contains('anyValue')} (Erwartet: false)`);
+
+// Test für find()
+console.log('\nFind Tests:');
+
+// Erstelle eine neue LinkedList und füge einige Knoten hinzu
+const list5 = new LinkedList();
+list5.append('apple');
+list5.append('banana');
+list5.append('cherry');
+
+// Teste die Suche nach Werten
+console.log(`Index von "banana": ${list5.find('banana')} (Erwartet: 1)`);
+console.log(`Index von "apple": ${list5.find('apple')} (Erwartet: 0)`);
+console.log(`Index von "cherry": ${list5.find('cherry')} (Erwartet: 2)`);
+console.log(`Index von "date": ${list5.find('date')} (Erwartet: null)`); // Nicht vorhanden
+
+console.log('\ntoSting Tests');
+
+// Test für toString() mit einer leeren Liste
+const emptyList2 = new LinkedList();
+console.log(`Leere Liste: "${emptyList2.toString()}" (Erwartet: null)`);
+
+// Test für toString() mit einer Liste mit einem Element
+const singleNodeList = new LinkedList();
+singleNodeList.append('dog');
+console.log(`Einzelne Knoten Liste: "${singleNodeList.toString()}" (Erwartet: "( dog ) -> null")`);
+
+// Test für toString() mit mehreren Elementen
+const multiNodeList = new LinkedList();
+multiNodeList.append('cat');
+multiNodeList.append('parrot');
+multiNodeList.append('hamster');
+console.log(
+	`Mehrere Knoten Liste: "${multiNodeList.toString()}" (Erwartet: "( cat ) -> ( parrot ) -> ( hamster ) -> null")`
+);
+
+// Test für toString() mit prepend
+const prependedList = new LinkedList();
+prependedList.prepend('snake');
+prependedList.prepend('turtle');
+console.log(`Prepended Liste: "${prependedList.toString()}" (Erwartet: "( turtle ) -> ( snake ) -> null")`);

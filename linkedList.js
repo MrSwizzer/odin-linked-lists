@@ -108,9 +108,40 @@ export default class LinkedList {
 		return false;
 	}
 
-	find(value) {}
+	find(value) {
+		if (this.head === null) {
+			return null;
+		}
 
-	toString() {}
+		let counter = 0;
+		let currentNode = this.head;
+
+		while (currentNode !== null) {
+			if (currentNode.value === value) {
+				return counter;
+			}
+			currentNode = currentNode.nextNode;
+			counter++;
+		}
+		return null;
+	}
+
+	toString() {
+		if (this.head === null) {
+			return null;
+		}
+
+		let currentNode = this.head;
+		let outputString = `( ${currentNode.value} )`;
+
+		while (currentNode.nextNode !== null) {
+			currentNode = currentNode.nextNode;
+			outputString += ` -> ( ${currentNode.value} )`;
+		}
+
+		outputString += ' -> null';
+		return outputString;
+	}
 
 	insertAt(value, index) {}
 
