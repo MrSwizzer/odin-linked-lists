@@ -168,9 +168,25 @@ export default class LinkedList {
 
 		const insertedNode = new Node(value, currentNode.nextNode);
 		currentNode.nextNode = insertedNode;
-
-		console.log(`Inserted ${value} at index ${index}`);
 	}
 
-	removeAt(index) {}
+	removeAt(index) {
+		if (!Number.isInteger(index) || index < 0 || index >= this.size()) {
+			return null;
+		}
+
+		if (index === 0) {
+			this.head = this.head.nextNode;
+			return;
+		}
+
+		let currentNode = this.head;
+		let indexCounter = 0;
+
+		while (indexCounter < index - 1) {
+			currentNode = currentNode.nextNode;
+			indexCounter++;
+		}
+		currentNode.nextNode = currentNode.nextNode.nextNode;
+	}
 }

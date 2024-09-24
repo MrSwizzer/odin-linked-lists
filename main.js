@@ -154,3 +154,25 @@ console.log(insertList.toString());
 
 // Teste das Einfügen an einer ungültigen Position
 console.log(`Versuch, an ungültiger Position einzufügen: ${insertList.insertAt('melon', 10)} (Erwartet: null)`);
+
+console.log('\nRemoveAt Tests:');
+
+const testList = new LinkedList();
+testList.append('apple');
+testList.append('banana');
+testList.append('cherry');
+
+// Teste das Entfernen des Kopfes
+testList.removeAt(0);
+console.log(`Kopf nach Entfernen: ${testList.head.value} (Erwartet: "banana")`);
+
+// Teste das Entfernen eines Knotens in der Mitte
+testList.removeAt(0); // Entferne "banana"
+console.log(`Kopf nach Entfernen: ${testList.head.value} (Erwartet: "cherry")`);
+
+// Teste das Entfernen des letzten Knotens
+testList.removeAt(0); // Entferne "cherry"
+console.log(`Kopf nach Entfernen: ${testList.head} (Erwartet: null)`);
+
+// Teste das Entfernen an einer ungültigen Position
+console.log(`Entfernen an ungültiger Position: ${testList.removeAt(10)} (Erwartet: null)`);
