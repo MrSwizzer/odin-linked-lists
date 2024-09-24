@@ -128,3 +128,29 @@ const prependedList = new LinkedList();
 prependedList.prepend('snake');
 prependedList.prepend('turtle');
 console.log(`Prepended Liste: "${prependedList.toString()}" (Erwartet: "( turtle ) -> ( snake ) -> null")`);
+
+// Test für insertAt()
+console.log('\nInsertAt Tests:');
+
+const insertList = new LinkedList();
+insertList.append('apple');
+insertList.append('banana');
+insertList.append('cherry');
+
+// Teste das Einfügen am Anfang
+insertList.insertAt('kiwi', 0);
+console.log(`Knoten an Index 0 nach Einfügen: ${insertList.head.value} (Erwartet: "kiwi")`);
+console.log(insertList.toString());
+
+// Teste das Einfügen in der Mitte
+insertList.insertAt('orange', 2);
+console.log(`Knoten an Index 2 nach Einfügen: ${insertList.at(2).value} (Erwartet: "orange")`);
+console.log(insertList.toString());
+
+// Teste das Einfügen am Ende
+insertList.insertAt('grape', 4); // Dies ist korrekt
+console.log(`Letzter Knoten nach Einfügen: ${insertList.at(4).value} (Erwartet: "grape")`);
+console.log(insertList.toString());
+
+// Teste das Einfügen an einer ungültigen Position
+console.log(`Versuch, an ungültiger Position einzufügen: ${insertList.insertAt('melon', 10)} (Erwartet: null)`);

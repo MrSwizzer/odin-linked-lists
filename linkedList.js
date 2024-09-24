@@ -143,7 +143,34 @@ export default class LinkedList {
 		return outputString;
 	}
 
-	insertAt(value, index) {}
+	insertAt(value, index) {
+		if (!Number.isInteger(index) || index < 0) {
+			return null;
+		}
+
+		if (index === 0) {
+			const insertedNode = new Node(value, this.head);
+			this.head = insertedNode;
+			return;
+		}
+
+		let currentNode = this.head;
+		let indexCounter = 0;
+
+		while (indexCounter < index - 1 && currentNode !== null) {
+			currentNode = currentNode.nextNode;
+			indexCounter++;
+		}
+
+		if (currentNode == null) {
+			return null;
+		}
+
+		const insertedNode = new Node(value, currentNode.nextNode);
+		currentNode.nextNode = insertedNode;
+
+		console.log(`Inserted ${value} at index ${index}`);
+	}
 
 	removeAt(index) {}
 }
