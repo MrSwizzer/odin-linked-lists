@@ -73,9 +73,40 @@ export default class LinkedList {
 		return null;
 	}
 
-	pop() {}
+	pop() {
+		if (this.head === null) {
+			return null;
+		}
 
-	contains(value) {}
+		if (this.head.nextNode === null) {
+			this.head = null;
+			return;
+		}
+
+		let currentNode = this.head;
+
+		while (currentNode.nextNode.nextNode !== null) {
+			currentNode = currentNode.nextNode;
+		}
+
+		currentNode.nextNode = null;
+	}
+
+	contains(value) {
+		if (this.head === null) {
+			return false;
+		}
+
+		let currentNode = this.head;
+
+		while (currentNode !== null) {
+			if (currentNode.value === value) {
+				return true;
+			}
+			currentNode = currentNode.nextNode;
+		}
+		return false;
+	}
 
 	find(value) {}
 

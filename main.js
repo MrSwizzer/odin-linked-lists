@@ -44,3 +44,46 @@ console.log(`Knoten an Index 2: ${list.at(2).value} (Erwartet: "parrot")`);
 console.log(`Knoten an Index 3: ${list.at(3)} (Erwartet: null)`);
 console.log(`Knoten an Index -1: ${list.at(-1)} (Erwartet: null)`);
 console.log(`Knoten an Index 5: ${list.at(5)} (Erwartet: null)`);
+
+// Test für pop()
+console.log('\nPop Tests:');
+
+const list3 = new LinkedList();
+list3.append('apple');
+list3.append('banana');
+list3.append('cherry');
+
+// Teste das Entfernen des letzten Knotens
+console.log(`Letzter Knoten vor Pop: ${list3.tail().value} (Erwartet: "cherry")`);
+list3.pop();
+console.log(`Letzter Knoten nach Pop: ${list3.tail().value} (Erwartet: "banana")`);
+
+// Entferne den letzten Knoten und teste erneut
+list3.pop();
+console.log(`Letzter Knoten nach zweitem Pop: ${list3.tail().value} (Erwartet: "apple")`);
+
+// Entferne den letzten Knoten und teste erneut
+list3.pop();
+console.log(`Liste nach drittem Pop, Head: ${list3.head} (Erwartet: null)`); // Sollte null sein
+
+// Teste Pop auf einer leeren Liste
+console.log(`Pop auf leerer Liste: ${list3.pop()} (Erwartet: null)`); // Sollte null zurückgeben
+
+// Test für contains()
+console.log('\nContains Tests:');
+
+// Erstelle eine neue LinkedList und füge einige Knoten hinzu
+const list4 = new LinkedList();
+list4.append('apple');
+list4.append('banana');
+list4.append('cherry');
+
+// Teste das Vorhandensein von Werten
+console.log(`Liste enthält "banana": ${list4.contains('banana')} (Erwartet: true)`);
+console.log(`Liste enthält "apple": ${list4.contains('apple')} (Erwartet: true)`);
+console.log(`Liste enthält "cherry": ${list4.contains('cherry')} (Erwartet: true)`);
+console.log(`Liste enthält "date": ${list4.contains('date')} (Erwartet: false)`);
+
+// Teste auf einer leeren Liste
+const emptyList = new LinkedList();
+console.log(`Leere Liste enthält "anyValue": ${emptyList.contains('anyValue')} (Erwartet: false)`);
