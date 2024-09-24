@@ -31,11 +31,47 @@ export default class LinkedList {
 		}
 	}
 
-	size() {}
+	size() {
+		let count = 0;
+		let currentNode = this.head;
 
-	tail() {}
+		while (currentNode !== null) {
+			count++;
+			currentNode = currentNode.nextNode;
+		}
+		return count;
+	}
 
-	at(index) {}
+	tail() {
+		if (this.head === null) {
+			return null;
+		}
+
+		let currentNode = this.head;
+
+		while (currentNode.nextNode !== null) {
+			currentNode = currentNode.nextNode;
+		}
+
+		return currentNode;
+	}
+
+	at(index) {
+		let count = 0;
+		let currentNode = this.head;
+
+		if (Number.isInteger(index) && index >= 0) {
+			while (currentNode !== null) {
+				if (count == index) {
+					return currentNode;
+				} else {
+					count++;
+					currentNode = currentNode.nextNode;
+				}
+			}
+		}
+		return null;
+	}
 
 	pop() {}
 
@@ -47,5 +83,5 @@ export default class LinkedList {
 
 	insertAt(value, index) {}
 
-	size(index) {}
+	removeAt(index) {}
 }
